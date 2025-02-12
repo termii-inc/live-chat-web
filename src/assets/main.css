@@ -1,0 +1,6 @@
+@import './base.css';
+@import 'tailwindcss';
+
+@theme {
+  --font-karla: karla, sans-serif;
+}
