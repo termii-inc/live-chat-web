@@ -32,14 +32,14 @@ export default defineConfig({
     lib: {
       entry: "src/main.ts",
       name: "ChatWidget",
-      fileName: () => "111222", // Generates 111222.js
+      fileName: () => "111228", // Generates 111222.js
       formats: ["iife"], // Ensures the script runs automatically
     },
     rollupOptions: {
       output: {
-       entryFileNames: "111222.js",
-      assetFileNames: "111222.[ext]",
-      chunkFileNames: "111222.[ext]",
+       entryFileNames: "111228.js",
+      assetFileNames: "111228.[ext]",
+      chunkFileNames: "111228.[ext]",
       },
     },
   },
