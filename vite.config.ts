@@ -7,13 +7,12 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from '@tailwindcss/vite'
 import Components from 'unplugin-vue-components/vite';
 import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
+import polyfillNode from "rollup-plugin-polyfill-node";
 
 // https://vite.dev/config/
 export default defineConfig({
-  define: {
-    "process.env": {},
-  },
   plugins: [
+    polyfillNode(),
     tailwindcss(),
     vue(),
     vueJsx(),
@@ -47,6 +46,7 @@ export default defineConfig({
     },
   },
 })
+
 
 
 
