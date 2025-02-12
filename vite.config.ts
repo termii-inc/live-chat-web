@@ -12,7 +12,7 @@ import polyfillNode from "rollup-plugin-polyfill-node";
 // https://vite.dev/config/
 export default defineConfig({
   define: {
-    "process.env.NODE_ENV": JSON.stringify("production"), // Replaces process.env.NODE_ENV with "production"
+    'process.env.NODE_ENV': '"production"', // Replaces process.env.NODE_ENV with "production"
   },
   plugins: [
     polyfillNode(),
