@@ -40,4 +40,7 @@ window.LiveChatWidget = {
 };
 
 // 🔹 Auto-init when the script loads
-window.LiveChatWidget.init();
+window.addEventListener("load", () => {
+    console.log("Script loaded, initializing LiveChatWidget...");
+    window.LiveChatWidget?.init();
+});
