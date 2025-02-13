@@ -4,6 +4,15 @@ import { createPinia } from "pinia";
 import App from "./App.vue";
 import router from "./router";
 
+
+declare global {
+    interface Window {
+        LiveChatWidget?: {
+            init: () => void;
+        };
+    }
+}
+
 // Function to initialize the LiveChat widget
 function initLiveChatWidget() {
     // Prevent duplicate instances
@@ -21,17 +30,15 @@ function initLiveChatWidget() {
     }
 }
 
+// initLiveChatWidget();
 
-if (typeof window !== "undefined") {
-    (window as any).LiveChatWidget = {
-        init: initLiveChatWidget,
-    };
-}
+window.LiveChatWidget = {
+    init: initLiveChatWidget,
+};
 
-// ✅ Automatically initialize when the script is loaded
 document.addEventListener("DOMContentLoaded", () => {
-    if ((window as any).LiveChatWidget) {
-        (window as any).LiveChatWidget.init();
+    if (window.LiveChatWidget) {
+        window.LiveChatWidget.init();
     }
 });
 
