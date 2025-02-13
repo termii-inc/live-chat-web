@@ -2,5 +2,5 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-karla: karla, sans-serif;
+  --font-karla: karla, sans-serif !important;
 }

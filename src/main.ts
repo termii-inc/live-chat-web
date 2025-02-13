@@ -29,22 +29,19 @@ function initLiveChatWidget() {
     const app = createApp(App);
     app.use(createPinia());
     app.use(router);
-    app.mount("#live-chat-widget"); // ✅ Mounting to the dynamically created element
+    app.mount("#live-chat-widget"); // Mounting to the dynamically created element
 
     console.log("Live Chat Widget Initialized!");
 }
 
 // ✅ Attach the function to `window` so it can be accessed globally
-// window.LiveChatWidget = {
-//     init: initLiveChatWidget,
-// };
+window.LiveChatWidget = {
+    init: initLiveChatWidget,
+};
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-(window as any).LiveChatWidget = { init: initLiveChatWidget };
 
-// 🔹 Auto-init when the script loads
+//Auto-init when the script loads
 
 window.addEventListener("load", () => {
-    console.log("Script loaded, initializing LiveChatWidget...");
     window.LiveChatWidget?.init();
 });
