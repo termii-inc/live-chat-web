@@ -35,9 +35,12 @@ function initLiveChatWidget() {
 }
 
 // ✅ Attach the function to `window` so it can be accessed globally
-window.LiveChatWidget = {
-    init: initLiveChatWidget,
-};
+// window.LiveChatWidget = {
+//     init: initLiveChatWidget,
+// };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(window as any).LiveChatWidget = { init: initLiveChatWidget };
 
 // 🔹 Auto-init when the script loads
 
