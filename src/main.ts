@@ -13,10 +13,11 @@ declare global {
     }
 }
 
+// Function to initialize the LiveChat widget
 function initLiveChatWidget() {
     console.log("Initializing Live Chat Widget...");
 
-    // 🔹 Create the mount point dynamically if it doesn't exist
+    // 🔹 Ensure the mount element exists
     let appDiv = document.getElementById("live-chat-widget");
     if (!appDiv) {
         appDiv = document.createElement("div");
@@ -24,23 +25,19 @@ function initLiveChatWidget() {
         document.body.appendChild(appDiv);
     }
 
+    // 🔹 Create Vue app and mount
     const app = createApp(App);
     app.use(createPinia());
     app.use(router);
-    app.mount("#live-chat-widget"); // 🔹 Mounting to the correct element
+    app.mount("#live-chat-widget"); // ✅ Mounting to the dynamically created element
+
+    console.log("Live Chat Widget Initialized!");
 }
 
-// initLiveChatWidget();
+// ✅ Attach the function to `window` so it can be accessed globally
+window.LiveChatWidget = {
+    init: initLiveChatWidget,
+};
 
-window.LiveChatWidget = { init: initLiveChatWidget };
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    if (window.LiveChatWidget) {
-        window.LiveChatWidget.init();
-    }
-});
-
-
-
-
+// 🔹 Auto-init when the script loads
+window.LiveChatWidget.init();
