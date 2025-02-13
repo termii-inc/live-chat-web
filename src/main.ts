@@ -13,21 +13,21 @@ declare global {
     }
 }
 
-// Function to initialize the LiveChat widget
 function initLiveChatWidget() {
-    // Prevent duplicate instances
-    if (!document.getElementById("live-chat-widget")) {
-        console.log('about to create')
-        const appDiv = document.createElement("div");
+    console.log("Initializing Live Chat Widget...");
+
+    // 🔹 Create the mount point dynamically if it doesn't exist
+    let appDiv = document.getElementById("live-chat-widget");
+    if (!appDiv) {
+        appDiv = document.createElement("div");
         appDiv.id = "live-chat-widget";
         document.body.appendChild(appDiv);
-        console.log('about to create', appDiv)
-        const app = createApp(App);
-        app.use(createPinia());
-        app.use(router);
-        // app.mount('#app')
-        app.mount("#live-chat-widget");
     }
+
+    const app = createApp(App);
+    app.use(createPinia());
+    app.use(router);
+    app.mount("#live-chat-widget"); // 🔹 Mounting to the correct element
 }
 
 // initLiveChatWidget();
@@ -35,11 +35,11 @@ function initLiveChatWidget() {
 window.LiveChatWidget = { init: initLiveChatWidget };
 
 
-// document.addEventListener("DOMContentLoaded", () => {
-//     if (window.LiveChatWidget) {
-//         window.LiveChatWidget.init();
-//     }
-// });
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.LiveChatWidget) {
+        window.LiveChatWidget.init();
+    }
+});
 
 
 
