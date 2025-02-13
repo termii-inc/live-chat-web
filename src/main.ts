@@ -32,15 +32,14 @@ function initLiveChatWidget() {
 
 // initLiveChatWidget();
 
-window.LiveChatWidget = {
-    init: initLiveChatWidget,
-};
+window.LiveChatWidget = { init: initLiveChatWidget };
 
-document.addEventListener("DOMContentLoaded", () => {
-    if (window.LiveChatWidget) {
-        window.LiveChatWidget.init();
-    }
-});
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     if (window.LiveChatWidget) {
+//         window.LiveChatWidget.init();
+//     }
+// });
 
 
 
