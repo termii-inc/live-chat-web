@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-amber-700 h-screen">
+    <div class="bg-transparent z-1000 h-screen">
         <div class="flex justify-around items-start w-full h-[780px]">
             <LiveChatHome v-if="isDisplayingHomePage" @new-chat="displayChatPage"
                 @show-Knowledge-base="displayKnowledgeBase" @see-all-messages="displayChatMessages"
