@@ -1,6 +1,7 @@
 <template>
-    <div class="bg-transparent z-1000 h-screen">
-        <div class="flex justify-around items-start w-full h-[780px]">
+    <div class="bg-transparent fixed bottom-5 right-5 z-999999999!">
+        <div class="flex items-start w-[400px] h-[704px]"
+            v-if="isDisplayingLiveChatWidget">
             <LiveChatHome v-if="isDisplayingHomePage" @new-chat="displayChatPage"
                 @show-Knowledge-base="displayKnowledgeBase" @see-all-messages="displayChatMessages"
                 @show-chat="displayChatPage" />
@@ -13,7 +14,13 @@
             <ChatMessages v-if="isDisplayingChatMessages" @show-home="displayHomePage" @show-chat="displayChatPage" />
 
             <KnowledgeBaseDetails v-if="isDisplayingKnowledgeBaseDetails" @show-Knowledge-base="displayKnowledgeBase" />
+
         </div>
+        <div @click="isDisplayingLiveChatWidget = !isDisplayingLiveChatWidget"
+            class="bg-[#3E599F] inline-flex justify-center items-center mr-0 float-right mt-2! size-12 cursor-pointer rounded-2xl">
+            <img src="@/assets/shared/caret_white_down.svg" class="size-6" />
+        </div>
+
     </div>
 </template>
 
@@ -23,6 +30,7 @@ import ChatMessages from './ChatMessages.vue'
 import ChatPage from './ChatPage.vue'
 import KnowledgeBase from './KnowledgeBase.vue'
 
+const isDisplayingLiveChatWidget = ref(false);
 const isDisplayingHomePage = ref(true)
 const isDisplayingChatPage = ref(false)
 const isDisplayingKnowledgeBase = ref(false)
